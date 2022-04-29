@@ -68,6 +68,27 @@ img {
   display: none;
 }
 
+
+#thank-you{
+  position: relative;
+    top: 0px;
+    left: 0px;
+    width: 97%;
+    margin: 0 auto;
+    height: 93vh;
+    background-color: rgb(35, 35, 35);
+    text-align: center;
+    z-index: 999;
+    border-radius: 15px;
+}
+
+#thank-you p{
+  color: white;
+  position: relative;
+  top: 40%;
+  margin: 0 16px;font-size: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -270,7 +291,7 @@ input[data-error]::after {
   opacity: 0;
 }
 .checkbox-input {
-  display: none;
+ opacity: 0;
 }
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
@@ -332,6 +353,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+  width: 246px;
 }
 /* custom select styles */
 .custom-select {
