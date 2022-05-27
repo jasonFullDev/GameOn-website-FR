@@ -62,18 +62,22 @@
             <div class="formData">
               <label>Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" required /><br>
+              <div id="FirstNameError" style="display:none;"  class="error">Veuillez entrer 2 caractères ou plus pour le champ du prénom.</div>
             </div>
             <div class="formData">
               <label>Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" minlength="2" required /><br>
+              <div id="LastNameError" style="display:none;"  class="error">Veuillez entrer 2 caractères ou plus pour le champ du nom.</div>
             </div>
             <div class="formData">
               <label>E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" required /><br>
+              <div id="MailError"     style="display:none;" class="error">Vous devez entrer votre E-mail.</div>
             </div>
             <div class="formData">
               <label>Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" required /><br>
+              <div id="BirthError" style="display:none;" class="error">Vous devez entrer votre date de naissance.</div>
             </div>
             <div class="formData">
               <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
@@ -81,9 +85,10 @@
             </div>
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData">
-              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York"
-                oninvalid="this.setCustomValidity('Vous devez choisir une option.')"
-                onchange="this.setCustomValidity('')" required />
+              <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" required />
+
+
+           
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
@@ -109,14 +114,16 @@
                 Portland</label>
             </div>
 
+            <div id="TournamentError" style="display:none;" class="error">Vous devez choisir une option.</div>
+
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1"
-                oninvalid="this.setCustomValidity('Vous devez vérifier que vous acceptez les termes et conditions.')"
-                onchange="this.setCustomValidity('')" checked required />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" checked required />
+              
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
+              <div id="checkboxError" style="display:none;" class="error">Vous devez vérifier que vous acceptez les termes et conditions.</div>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">

@@ -549,5 +549,11 @@ footer {
   }
 }
 
-
-
+.error{
+  height: 30px;
+  background-color: #ff0000;
+  font-size: 14px;
+  margin-top: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
