@@ -45,10 +45,12 @@ function launchModal() {
 
   firstname.addEventListener("keyup", function (event) {
 
-    if (firstname.value.length >= 2) {
-      firstname.setCustomValidity("");
+    let error = firstname.parentNode.querySelector('p');
+    if (lastname.value.length >= 2) {
+     
+      error.classList.remove('onerror');
     } else {
-      firstname.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+      error.classList.add('onerror');
     }
   });
 
@@ -56,9 +58,10 @@ function launchModal() {
   lastname.addEventListener("keyup", function (event) {
     let error = lastname.parentNode.querySelector('p');
     if (lastname.value.length >= 2) {
-      error.classList.add('onerror');
-    } else {
       error.classList.remove('onerror');
+      
+    } else {
+      error.classList.add('onerror');
     }
   });
 
@@ -118,9 +121,8 @@ function validate(event) {
 
   //var formData = new FormData(formData)
   document.querySelector('.bground').style.display = "none";
-  document.getElementById('thank-you').style.display = "block";
+  document.getElementById('thank-you').classList.add('active');
   document.querySelector('.hero-section').style.display = "none";
-
   event.preventDefault();
 }
 
@@ -128,7 +130,6 @@ function validate(event) {
 
 function closeThank() {
   canOpenEditNav = true;
-  document.getElementById('thank-you').style.display = "none";
+  document.getElementById('thank-you').classList.remove('active');
   document.querySelector('.hero-section').removeAttribute('style');
-
 }
