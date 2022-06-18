@@ -37,6 +37,11 @@ img {
 .header-logo {
     float: left;
 }
+
+.header-logo > img {
+  width: auto;
+  height: auto;
+}
 .main-navbar {
     float: right;
 }
@@ -551,3 +556,13 @@ footer {
 
 
 
+.error {
+  font-size: 0.6em;
+  font-weight: normal;
+  color: #e54858;
+  display: none;
+}
+
+.onerror{
+  display: block!important;
+}

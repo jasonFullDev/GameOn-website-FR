@@ -22,6 +22,8 @@ var lastname = document.getElementById("last");
 var BrthDate = document.getElementById("birthdate");
 var email = document.getElementById("email");
 
+var validationcond = document.getElementById('checkbox1');
+
 var canOpenEditNav = true;
 
 lastname.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
@@ -52,18 +54,19 @@ function launchModal() {
 
 
   lastname.addEventListener("keyup", function (event) {
-
+    let error = lastname.parentNode.querySelector('p');
     if (lastname.value.length >= 2) {
-      lastname.setCustomValidity("");
+      error.classList.add('onerror');
     } else {
-      lastname.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+      error.classList.remove('onerror');
     }
   });
 
   BrthDate.oninvalid = function (e) {
-    e.target.setCustomValidity("");
+    let error = BrthDate.parentNode.querySelector('p');
+    error.classList.remove('onerror');
     if (!e.target.validity.valid) {
-      e.target.setCustomValidity("Vous devez entrer votre date de naissance.");
+      error.classList.add('onerror');
     }
   };
   BrthDate.oninput = function (e) {
@@ -74,6 +77,14 @@ function launchModal() {
 
   let allel = document.querySelectorAll('.checkbox-input[name=location]');
 
+  allel.oninvalid = function(e){
+    let error = allel.parentNode.querySelector('p');
+    error.classList.remove('onerror');
+    if (!e.target.validity.valid) {
+      error.classList.add('onerror');
+    }
+  }
+
   for (let i = 0; i < allel.length; i++) {
     allel[i].addEventListener('change', function () {
       for (let u = 0; u < allel.length; u++) {
@@ -81,6 +92,15 @@ function launchModal() {
         allel[u].setCustomValidity("");
       }
     });
+  }
+
+
+  validationcond.oninvalid = function(e){
+    let error = allel.parentNode.querySelector('p');
+    error.classList.remove('onerror');
+    if (!e.target.validity.valid) {
+      error.classList.add('onerror');
+    }
   }
 
 
@@ -109,6 +129,6 @@ function validate(event) {
 function closeThank() {
   canOpenEditNav = true;
   document.getElementById('thank-you').style.display = "none";
-  document.querySelector('.hero-section').style.display = "initial";
+  document.querySelector('.hero-section').removeAttribute('style');
 
 }
