@@ -26,9 +26,7 @@ var validationcond = document.getElementById('checkbox1');
 
 var canOpenEditNav = true;
 
-lastname.setCustomValidity("Veuillez entrer 2 caractères ou plus pour le champ du nom.");
 
-BrthDate.setCustomValidity("Vous devez entrer votre date de naissance.");
 
 document.getElementById('thank-you').style.display = "none";
 
@@ -72,9 +70,7 @@ function launchModal() {
       error.classList.add('onerror');
     }
   };
-  BrthDate.oninput = function (e) {
-    e.target.setCustomValidity("");
-  };
+
 
 
 
@@ -122,7 +118,7 @@ function validate(event) {
   //var formData = new FormData(formData)
   document.querySelector('.bground').style.display = "none";
   document.getElementById('thank-you').classList.add('active');
-  document.querySelector('.hero-section').style.display = "none";
+  document.querySelector('.hero-section').classList.add('displaynone');
   event.preventDefault();
 }
 
@@ -131,5 +127,5 @@ function validate(event) {
 function closeThank() {
   canOpenEditNav = true;
   document.getElementById('thank-you').classList.remove('active');
-  document.querySelector('.hero-section').removeAttribute('style');
+  document.querySelector('.hero-section').classList.remove('displaynone');
 }

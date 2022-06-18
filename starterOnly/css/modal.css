@@ -85,6 +85,7 @@ img {
     text-align: center;
     z-index: 999;
     border-radius: 15px;
+  display: none;
 }
 
 #thank-you p{
@@ -563,6 +564,10 @@ footer {
   display: none;
 }
 
-.onerror{
+.displaynone{
+  display: none;
+}
+
+.onerror , .active{
   display: block!important;
 }
