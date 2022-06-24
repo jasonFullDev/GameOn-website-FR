@@ -23,6 +23,9 @@ var BrthDate = document.getElementById("birthdate");
 var email = document.getElementById("email");
 
 var validationcond = document.getElementById('checkbox1');
+var informcond = document.getElementById('checkbox2');
+
+var quantity = document.getElementById('quantity');
 
 var canOpenEditNav = true;
 
@@ -32,11 +35,28 @@ document.getElementById('thank-you').style.display = "none";
 
 
 
+function initForm(){
+  
+  firstname.value = "";
+  lastname.value = "";
+  email.value = "";
+  BrthDate.value = "";
+
+  quantity.value = "";
+
+  let allel = document.querySelectorAll('.checkbox-input[name=location]');
+  allel.forEach(element => {
+    element.checked = false;
+  });
+
+  validationcond.checked = false;
+  informcond.checked = false;
+}
 
 // launch modal form
 function launchModal() {
 
-
+  initForm();
   canOpenEditNav = false;
   modalbg.style.display = "block"
 
@@ -44,8 +64,7 @@ function launchModal() {
   firstname.addEventListener("keyup", function (event) {
 
     let error = firstname.parentNode.querySelector('p');
-    if (lastname.value.length >= 2) {
-     
+    if (firstname.value.length >= 2) {
       error.classList.remove('onerror');
     } else {
       error.classList.add('onerror');
@@ -63,6 +82,25 @@ function launchModal() {
     }
   });
 
+
+  email.addEventListener('keyup' , () => {
+
+    let regex = new RegExp("[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+")
+    let result = email.value.match(regex);
+
+    let error = email.parentNode.querySelector('p');
+  
+    if (!result) {
+      error.classList.add('onerror');
+    }
+    else
+    { 
+      error.classList.remove('onerror');
+    }
+
+   
+  }); 
+
   BrthDate.oninvalid = function (e) {
     let error = BrthDate.parentNode.querySelector('p');
     error.classList.remove('onerror');
@@ -77,7 +115,7 @@ function launchModal() {
   let allel = document.querySelectorAll('.checkbox-input[name=location]');
 
   allel.oninvalid = function(e){
-    let error = allel.parentNode.querySelector('p');
+    let error = allel[0].parentNode.querySelector('p');
     error.classList.remove('onerror');
     if (!e.target.validity.valid) {
       error.classList.add('onerror');
@@ -95,7 +133,7 @@ function launchModal() {
 
 
   validationcond.oninvalid = function(e){
-    let error = allel.parentNode.querySelector('p');
+    let error = validationcond.parentNode.querySelector('p');
     error.classList.remove('onerror');
     if (!e.target.validity.valid) {
       error.classList.add('onerror');
@@ -111,6 +149,7 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none"
 }
+
 
 
 function validate(event) {
